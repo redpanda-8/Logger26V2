@@ -1,22 +1,32 @@
+import { useNavigate } from "react-router-dom";
+
 export default function Header() {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    // Čia galima išvalyti auth duomenis, jei reikia
+    // localStorage.removeItem("token");
+    navigate("/login"); // SPA nukreipimas į login
+  };
+
   return (
     <nav className="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
-      <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
-        <i class="fa fa-bars"></i>
+      <button id="sidebarToggleTop" className="btn btn-link d-md-none rounded-circle mr-3">
+        <i className="fa fa-bars"></i>
       </button>
 
-      <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
-        <div class="input-group">
-
-          <input type="text" 
-            class="form-control bg-light border-0 small" 
+      <form className="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+        <div className="input-group">
+          <input
+            type="text"
+            className="form-control bg-light border-0 small"
             placeholder="Search for..."
-            aria-label="Search" 
-            aria-describedby="basic-addon2">
-          </input>
-          <div class="input-group-append">
-            <button class="btn btn-primary" type="button">
-                <i class="fas fa-search fa-sm"></i>
+            aria-label="Search"
+            aria-describedby="basic-addon2"
+          />
+          <div className="input-group-append">
+            <button className="btn btn-primary" type="button">
+              <i className="fas fa-search fa-sm"></i>
             </button>
           </div>
         </div>
@@ -45,10 +55,13 @@ export default function Header() {
               Profile
             </a>
             <div className="dropdown-divider"></div>
-            <a className="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+            <button
+              className="dropdown-item"
+              onClick={handleLogout} // <-- čia SPA navigacija į login
+            >
               <i className="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
               Logout
-            </a>
+            </button>
           </div>
         </li>
       </ul>

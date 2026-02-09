@@ -6,7 +6,7 @@ export default function Navbar() {
 
   return (
     <ul className="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-      <NavLink className="sidebar-brand d-flex align-items-center justify-content-center" to="/">
+      <NavLink className="sidebar-brand d-flex align-items-center justify-content-center" to="/home">
         <div className="sidebar-brand-icon rotate-n-15">
           <i className="fas fa-laugh-wink"></i>
         </div>
@@ -16,7 +16,7 @@ export default function Navbar() {
       <hr className="sidebar-divider my-0" />
 
       <li className="nav-item">
-        <NavLink className={navLinkClass} to="/">
+        <NavLink className={navLinkClass} to="/home">
           <i className="fas fa-fw fa-tachometer-alt"></i>
           <span>Pradinis</span>
         </NavLink>
